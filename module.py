@@ -27,11 +27,14 @@ def getAndParseURL(url):
 		else:
 			pass
 
+def Logging(Log):
+	f = open('error.log', 'a+')
+	f.write(str(Log) + "\n")
+	f.close()
+
 if __name__ == "__main__":
 	try:
 		getAndParseURL('https://lightdlmovies.blogspot.com/search/label/MOVIES/')
 		getAndParseURL('https://www.lightdl.xyz/search/label/TV%20SERIES/')
 	except Exception as error:
-		errorLog = open("error.log", "a+")
-		errorLog.write(str(error) + "\n")
-		errorLog.close()
+		Logging(error)
