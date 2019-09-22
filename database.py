@@ -24,4 +24,3 @@ class manageDB:
         sqlFormula = "INSERT INTO {} (links) VALUES ('{}')".format(table, html_links)
         mycursor.execute(sqlFormula, html_links)
         mydb.commit()
-

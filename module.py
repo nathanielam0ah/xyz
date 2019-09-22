@@ -6,6 +6,11 @@ from bs4 import BeautifulSoup
 import urllib.request
 import re
 
+def Logging	(filename, Log):
+	f = open(filename, 'a+')
+	f.write(str(Log) + "\n")
+	f.close()
+
 def getAndParseURL(url):
 
 	html_page = urllib.request.urlopen(url)
@@ -27,14 +32,9 @@ def getAndParseURL(url):
 		else:
 			pass
 
-def Logging(Log):
-	f = open('error.log', 'a+')
-	f.write(str(Log) + "\n")
-	f.close()
-
 if __name__ == "__main__":
 	try:
 		getAndParseURL('https://lightdlmovies.blogspot.com/search/label/MOVIES/')
 		getAndParseURL('https://www.lightdl.xyz/search/label/TV%20SERIES/')
 	except Exception as error:
-		Logging(error)
+		Logging('error.log', 'error')
