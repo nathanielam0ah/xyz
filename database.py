@@ -25,8 +25,3 @@ class manageDB:
         mycursor.execute(sqlFormula, html_links)
         mydb.commit()
 
-if __name__ == "__main__":
-    manageDB = manageDB()
-    manageDB.createDB('xyz')
-    manageDB.createTB('xyz', 'movies')
-    manageDB.insertTB('xyz', 'movies', 'nathanielam0ah@github.com')
