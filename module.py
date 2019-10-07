@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
 
-from database import manageDB
-from filter import filterLinks
 from bs4 import BeautifulSoup
+from filter import filterLinks
+from mySQL import manageDB
+from writelog import Logging
 import urllib.request
 import re
 
-def Logging	(filename, Log):
-	f = open(filename, 'a+')
-	f.write(str(Log) + "\n")
-	f.close()
 
 def getAndParseURL(url):
 
@@ -37,4 +34,6 @@ if __name__ == "__main__":
 		getAndParseURL('https://lightdlmovies.blogspot.com/search/label/MOVIES/')
 		getAndParseURL('https://www.lightdl.xyz/search/label/TV%20SERIES/')
 	except Exception as error:
-		Logging('error.log', 'error')
+		Logging('error.md', error)
+
+#version with mySQL
